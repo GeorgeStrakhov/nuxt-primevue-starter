@@ -1,31 +1,49 @@
+import dotenv from 'dotenv';
 import Aura from '@primevue/themes/aura';
 
+dotenv.config();
+
+const privateRuntimeConfig = {};
+for (const key in process.env) {
+    if (process.env.hasOwnProperty(key)) {
+        privateRuntimeConfig[key] = process.env[key];
+    }
+}
+
 export default defineNuxtConfig({
-  app: {
-    head: {
-      title: "Nuxt App",
+    app: {
+        head: {
+            title: "My Nuxt App",
+        },
+        link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-  },
 
-  devtools: { enabled: true },
+    privateRuntimeConfig,
 
-  css: [
-    "@/assets/main.css",
-    "primeicons/primeicons.css",
-  ],
+    devtools: { enabled: true },
 
-  modules: ["@primevue/nuxt-module"],
+    css: [
+        "primeicons/primeicons.css",
+        "primeflex/primeflex.css"
+    ],
 
-  primevue: {
-    options: {
-      theme: {
-        preset: Aura
-      },
-      ripple: true
+    webfontloader: {
+        google: {
+            families: ['Roboto:400,700']
+        }
     },
-    autoImport: true
-  },
 
-  compatibilityDate: "2024-07-03"
+    modules: ["@primevue/nuxt-module"],
+
+    primevue: {
+        options: {
+            theme: {
+                preset: Aura
+            },
+            ripple: true
+        },
+        autoImport: true
+    },
+
+    compatibilityDate: "2024-07-03"
 });

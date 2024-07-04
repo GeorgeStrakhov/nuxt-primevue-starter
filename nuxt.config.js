@@ -13,14 +13,14 @@ for (const key in process.env) {
 export default defineNuxtConfig({
     app: {
         head: {
-            title: "My Nuxt App",
+            title: "Test App",
         },
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
 
     privateRuntimeConfig,
 
-    devtools: { enabled: true },
+    devtools: { enabled: false },
 
     css: [
         "primeicons/primeicons.css",
@@ -35,7 +35,9 @@ export default defineNuxtConfig({
 
     modules: [
         "@primevue/nuxt-module",
+        "@vueuse/nuxt",
         "@pinia/nuxt",
+        "@nuxtjs/supabase",
     ],
 
     primevue: {
@@ -46,6 +48,16 @@ export default defineNuxtConfig({
             ripple: true
         },
         autoImport: true
+    },
+
+    supabase: {
+        redirectOptions: {
+            login: '/login',
+            callback: '/confirm',
+            include: undefined,
+            exclude: ["/"],
+            cookieRedirect: false,
+        }
     },
 
     compatibilityDate: "2024-07-03"

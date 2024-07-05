@@ -20,6 +20,12 @@ export default defineNuxtConfig({
 
     privateRuntimeConfig,
 
+    runtimeConfig: {
+        public: {
+            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || process.env.NUXT_ENV_VERCEL_URL || 'http://localhost:3000'
+        }
+    },
+
     devtools: { enabled: false },
 
     css: [

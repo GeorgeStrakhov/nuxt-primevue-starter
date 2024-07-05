@@ -9,6 +9,12 @@
                 class="p-button-sm"
                 />
             <Button
+                @click="navigateTo('/about')"
+                label="About"
+                severity="secondary"
+                class="p-button-sm"
+                />
+            <Button
                 v-if="user"
                 @click="logout"
                 label="Logout"
@@ -41,9 +47,14 @@ const { showErrorToast } = useCustomToast()
 const supabase = useSupabaseClient()
 const user = useSupabaseUser()
 
+
 const login = async () => {
-    //redirect to login
-    navigateTo('/login')
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: 'window.location.host' + '/confirm',
+    },
+  })
 }
 
 const logout = async () => {

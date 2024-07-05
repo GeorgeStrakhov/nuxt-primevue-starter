@@ -49,12 +49,7 @@ const user = useSupabaseUser()
 
 
 const login = async () => {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: 'window.location.host' + '/confirm',
-    },
-  })
+    navigateTo('/login')
 }
 
 const logout = async () => {

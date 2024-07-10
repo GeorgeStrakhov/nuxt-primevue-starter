@@ -1,0 +1,8 @@
+{
+    "functions": {
+        "api/generateGVquestion.js": {
+            "maxDuration": 60
+        }
+    }
+}
+

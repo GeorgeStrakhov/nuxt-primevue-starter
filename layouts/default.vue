@@ -8,12 +8,20 @@
                 severity="secondary"
                 class="p-button-sm"
                 />
+            <!--
             <Button
                 @click="navigateTo('/about')"
                 label="About"
                 severity="secondary"
                 class="p-button-sm"
                 />
+            <Button
+                @click="navigateTo('/notes')"
+                label="Notes"
+                severity="secondary"
+                class="p-button-sm"
+                />
+            -->
             <Button
                 v-if="user"
                 @click="logout"

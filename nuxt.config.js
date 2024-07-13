@@ -56,6 +56,10 @@ export default defineNuxtConfig({
         autoImport: true
     },
 
+    routeRules: {
+        '/': { ssr: false },
+    },
+
     supabase: {
         redirectOptions: {
             login: '/login',

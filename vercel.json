@@ -1,8 +1,7 @@
 {
-    "functions": {
-        "server/api/generate_gv_question.js": {
-            "maxDuration": 60
-        }
+  "functions": {
+    "*.js": {
+      "maxDuration": 60
     }
+  }
 }
-

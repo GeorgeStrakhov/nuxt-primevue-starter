@@ -1,6 +1,6 @@
 {
     "functions": {
-        "api/generateGVquestion.js": {
+        "server/api/generate_gv_question.js": {
             "maxDuration": 60
         }
     }

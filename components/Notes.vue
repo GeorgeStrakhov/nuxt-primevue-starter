@@ -16,10 +16,10 @@
                 </Column>
                 <Column :exportable="false" style="min-width:8rem">
                     <template #body="slotProps">
-                        <Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                        <Button rounded severity="warning" class="mr-2" icon="pi pi-pencil"
                             @click="startEdit(slotProps.data)"
                         />
-                        <Button icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                        <Button icon="pi pi-trash" severity="danger" rounded
                             @click="confirmDelete(slotProps.data)"
                         />
                     </template>
@@ -59,6 +59,7 @@ onMounted(() => {
     fetchNotes()
 })
 
+
 const addNewNote = async () => {
     if (newNoteContent.value.trim()) {
         await addNote(newNoteContent.value)
@@ -84,6 +85,15 @@ const confirmDelete = (note) => {
         message: 'Are you sure you want to delete this note?',
         header: 'Confirmation',
         icon: 'pi pi-exclamation-triangle',
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            outlined: true
+        },
+        acceptProps: {
+            label: 'Delete',
+            severity: 'danger'
+        },
         accept: () => deleteNoteConfirmed(note),
     })
 }

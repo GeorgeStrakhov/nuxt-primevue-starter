@@ -157,7 +157,7 @@ pre {
         isLoading.value = true
         console.log(userInput.value)
 
-        const response = await $fetch('/api/generateGVquestion', {
+        const response = await $fetch('/api/generate_gv_question', {
             method: 'post',
             body: { userMessage: userInput.value }
           })

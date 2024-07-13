@@ -1,6 +1,18 @@
 {
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/server/api/(.*)",
+      "dest": "/server/api/$1"
+    }
+  ],
   "functions": {
-    "*.js": {
+    "server/api/**/*.js": {
       "maxDuration": 60
     }
   }
